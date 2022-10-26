@@ -1,6 +1,11 @@
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -36,11 +41,19 @@ android {
 }
 
 dependencies {
+    implementation(project(":navigation"))
+    implementation(project(":ui-login"))
 
     implementation(Dependencies.coreKtx)
     implementation(Dependencies.appCompat)
     implementation(Dependencies.material)
     implementation(Dependencies.constraintLayout)
+    implementation(Dependencies.viewModel)
+    implementation(Dependencies.navigation)
+    implementation(Dependencies.navigationUiKtx)
+    implementation(Dependencies.daggerHilt)
+    implementation(Dependencies.timber)
+    kapt(Dependencies.daggerHiltCompiler)
 
     testImplementation(Dependencies.jUnit)
     androidTestImplementation(Dependencies.jUnitExt)

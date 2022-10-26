@@ -1,0 +1,4 @@
+<resources>
+    <string name="button_enter">Enter</string>
+    <string name="hint_api_key">API Key</string>
+</resources>
