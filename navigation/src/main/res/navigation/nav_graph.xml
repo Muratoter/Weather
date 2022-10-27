@@ -9,14 +9,15 @@
         android:id="@+id/loginFragment"
         android:name="com.moter.weather.login.LoginFragment"
         android:label="LoginFragment"
-        tools:layout="@layout/fragment_login">
-        <action
-            android:id="@+id/action_loginFragment_to_dashboardFragment"
-            app:destination="@id/dashboardFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="com.moter.weather.dashboard.DashboardFragment"
         android:label="DashboardFragment"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard">
+        <argument
+            android:name="api_key"
+            app:nullable="false" />
+        <deepLink app:uri="android-app://com.moter.weather/dashboard_fragment?api_key={api_key}" />
+    </fragment>
 </navigation>

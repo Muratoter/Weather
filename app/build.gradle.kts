@@ -4,7 +4,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
+    id("com.google.dagger.hilt.android")
     id("androidx.navigation.safeargs.kotlin")
 }
 
@@ -52,6 +52,9 @@ dependencies {
     implementation(project(":navigation"))
     implementation(project(":ui-login"))
     implementation(project(":ui-dashboard"))
+    implementation(project(":data"))
+    implementation(project(":domain"))
+    implementation(project(":core-common"))
 
     implementation(Dependencies.coreKtx)
     implementation(Dependencies.appCompat)

@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -38,8 +39,11 @@ android {
 }
 
 dependencies {
+    implementation(project(":ui-dashboard"))
     implementation(Dependencies.coreKtx)
     implementation(Dependencies.appCompat)
     implementation(Dependencies.constraintLayout)
     implementation(Dependencies.viewModel)
+    implementation(Dependencies.navigation)
+    implementation(Dependencies.navigationUiKtx)
 }

@@ -5,11 +5,10 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
-    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
-    namespace = "com.moter.weather.dashboard"
+    namespace = "com.moter.weather.data"
     compileSdk = Configs.compileSdk
 
     defaultConfig {
@@ -21,8 +20,20 @@ android {
     }
 
     buildTypes {
-        release {
+        named("debug") {
+            buildConfigField(
+                "String",
+                "BASE_URL",
+                "\"" + Configs.Environment.debugBaseUrl+ "\""
+            )
+        }
+        named("release") {
             isMinifyEnabled = false
+            buildConfigField(
+                "String",
+                "BASE_URL",
+                "\"" + Configs.Environment.releaseBaseUrl+ "\""
+            )
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -41,13 +52,15 @@ android {
 dependencies {
     implementation(project(":domain"))
     implementation(project(":core-common"))
-    implementation(Dependencies.coreKtx)
-    implementation(Dependencies.navigation)
-    implementation(Dependencies.navigationUiKtx)
-    implementation(Dependencies.appCompat)
-    implementation(Dependencies.constraintLayout)
-    implementation(Dependencies.viewModel)
+
+    implementation(Dependencies.gson)
+    api(Dependencies.converter_gson)
+    implementation(Dependencies.retrofit)
+    implementation(Dependencies.okHttp)
+    implementation(Dependencies.timber)
+    implementation(Dependencies.coroutines)
 
     implementation(Dependencies.daggerHilt)
     kapt(Dependencies.daggerHiltCompiler)
+
 }

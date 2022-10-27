@@ -20,4 +20,9 @@ object Configs {
     fun getVersionName(): String {
         return "$MAJOR.$MINOR.$PATCH"
     }
+
+    object Environment{
+        const val debugBaseUrl = "https://api.openweathermap.org/data/2.5/"
+        const val releaseBaseUrl = "https://api.openweathermap.org/data/2.5/"
+    }
 }

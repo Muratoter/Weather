@@ -1,15 +1,10 @@
-import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
-
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
-    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
-    namespace = "com.moter.weather.dashboard"
+    namespace = "com.moter.weather.domain"
     compileSdk = Configs.compileSdk
 
     defaultConfig {
@@ -39,15 +34,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":domain"))
+    implementation(Dependencies.coroutines)
     implementation(project(":core-common"))
-    implementation(Dependencies.coreKtx)
-    implementation(Dependencies.navigation)
-    implementation(Dependencies.navigationUiKtx)
-    implementation(Dependencies.appCompat)
-    implementation(Dependencies.constraintLayout)
-    implementation(Dependencies.viewModel)
-
-    implementation(Dependencies.daggerHilt)
-    kapt(Dependencies.daggerHiltCompiler)
 }
