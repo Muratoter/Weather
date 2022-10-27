@@ -17,14 +17,22 @@ android {
         minSdk = Configs.minSdk
         targetSdk = Configs.targetSdk
         versionCode = Configs.versionCode
-        versionName = getVersionName()
+        versionName = Configs.getVersionName()
 
         testInstrumentationRunner = Configs.testInstrumentationRunner
     }
 
     buildTypes {
-        getByName("release") {
+        getByName("debug"){
             isMinifyEnabled = false
+            isShrinkResources = false
+            isDebuggable = true
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-DEBUG"
+        }
+        getByName("release") {
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -43,6 +51,7 @@ android {
 dependencies {
     implementation(project(":navigation"))
     implementation(project(":ui-login"))
+    implementation(project(":ui-dashboard"))
 
     implementation(Dependencies.coreKtx)
     implementation(Dependencies.appCompat)
@@ -60,6 +69,3 @@ dependencies {
     androidTestImplementation(Dependencies.espresso)
 }
 
-fun getVersionName(): String {
-    return "${Configs.MAJOR}.${Configs.MINOR}.${Configs.PATCH}"
-}

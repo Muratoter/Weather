@@ -16,4 +16,8 @@ object Configs {
     const val PATCH = 0
 
     const val testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+    fun getVersionName(): String {
+        return "$MAJOR.$MINOR.$PATCH"
+    }
 }

@@ -1,11 +1,10 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
-    namespace = "com.moter.weather.navigation"
+    namespace = "com.moter.weather.dashboard"
     compileSdk = Configs.compileSdk
 
     defaultConfig {
@@ -35,8 +34,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":ui-login"))
-    implementation(project(":ui-dashboard"))
-    implementation(Dependencies.navigation)
-    implementation(Dependencies.navigationUiKtx)
+    implementation(Dependencies.coreKtx)
+    implementation(Dependencies.appCompat)
+    implementation(Dependencies.constraintLayout)
+    implementation(Dependencies.viewModel)
 }
