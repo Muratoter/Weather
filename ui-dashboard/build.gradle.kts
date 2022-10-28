@@ -36,6 +36,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -47,6 +50,7 @@ dependencies {
     implementation(Dependencies.appCompat)
     implementation(Dependencies.constraintLayout)
     implementation(Dependencies.viewModel)
+    implementation(Dependencies.timber)
 
     implementation(Dependencies.daggerHilt)
     kapt(Dependencies.daggerHiltCompiler)

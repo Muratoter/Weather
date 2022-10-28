@@ -12,6 +12,7 @@ data class OneCallResponse(
     val timezone_offset: Int
 )
 
+//TODO: map api model to ui model
 fun OneCallResponse.mapIt(): WeatherUIState = WeatherUIState(
-    a = ""
+    text = this.toString()
 )
